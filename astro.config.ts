@@ -22,7 +22,7 @@ export default defineConfig({
 
 
 site: 'https://yuroto.github.io',
-base: process.env.ASTRO_BASE_URL || '/',
+  base: '/burogu/',
 
 	image: {
 		domains: ["webmention.io"],
