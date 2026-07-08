@@ -23,6 +23,9 @@ export default defineConfig({
 
 site: 'https://yuroto.github.io',
   base: '/burogu/',
+  build: {
+    format: 'directory',
+  },
 
 	image: {
 		domains: ["webmention.io"],
