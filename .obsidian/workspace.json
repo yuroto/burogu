@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "hinagata/新規記事テンプレート.md",
+                "file": "src/content/post/2026/20260708.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "新規記事テンプレート"
+              "title": "20260708"
             }
           }
         ]
@@ -164,23 +164,14 @@
               "icon": "lucide-list",
               "title": "デプロイの手順のアウトライン"
             }
-          },
-          {
-            "id": "a45144ebd1065ce7",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
-            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -196,11 +187,11 @@
   },
   "active": "65132cf4f9911658",
   "lastOpenFiles": [
+    "hinagata/新規記事テンプレート.md",
     "新しいフォルダー",
     "src/content/post/2026/20260708.md",
     "hinagata/デプロイの手順.md",
     "src/content/post/2026/20260708 1.md",
-    "hinagata/新規記事テンプレート.md",
     "hinagata"
   ]
 }
