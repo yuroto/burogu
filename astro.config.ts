@@ -21,7 +21,7 @@ import { expressiveCodeOptions, siteConfig } from "./src/site.config";
 export default defineConfig({
 
 
-	
+	base: '/burogu',
 site: "https://yuroto.github.io/",
 
 	image: {
