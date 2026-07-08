@@ -4,7 +4,7 @@ import { type CollectionEntry, render } from "astro:content";
 import Masthead from "@/components/blog/Masthead.astro";
 import TOC from "@/components/blog/TOC.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
-import FormattedDate from "@/components/FormattedDate.astro"; // 💡 日付コンポーネントを読み込み
+import FormattedDate from "@/components/FormattedDate.astro"; 
 
 import BaseLayout from "./Base.astro";
 
@@ -13,8 +13,8 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { ogImage, title, description, updatedDate, publishDate, tags } = post.data; // 💡 tags も取得
-const socialImage = ogImage ?? `/og-image/${post.id}.png`;
+const { ogImage, title, description, updatedDate, publishDate, tags } = post.data; 
+const socialImage = ogImage ?? `${import.meta.env.BASE_URL}og-image/${post.id}.png`;
 const articleDate = updatedDate?.toISOString() ?? publishDate.toISOString();
 const { headings, remarkPluginFrontmatter } = await render(post);
 const readingTime: string = remarkPluginFrontmatter.readingTime;
@@ -29,7 +29,6 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 	}}
 >
 	<article class="grow break-words" data-pagefind-body>
-		{/* 💡 後述するステップ2のために、isLayoutPost={true} という目印を渡します */}
 		<div id="blog-hero" class="mb-12"><Masthead content={post} isLayoutPost={true} /></div>
 		<div class="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
 			<div
@@ -37,7 +36,6 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 			>
 				<slot />
 				
-				{/* 💡 ここから下を追加：本文の直後に境界線、日付、タグを表示 */}
 				<div class="mt-12 pt-6 flex flex-col gap-y-2 text-xs text-quote">
 					<p>
 					 <FormattedDate date={publishDate} />
@@ -49,7 +47,7 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 							<ul class="flex flex-wrap gap-x-2">
 								{tags.map((tag) => (
 									<li>
-										<a class="cactus-link" href={`/tags/${tag}/`}>#{tag}</a>
+										<a class="cactus-link" href={`${import.meta.env.BASE_URL}tags/${tag}/`}>#{tag}</a>
 									</li>
 								))}
 							</ul>
@@ -88,7 +86,6 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 
 	function callback(entries: IntersectionObserverEntry[]) {
 		entries.forEach((entry) => {
-			// only show the scroll to top button when the heading is out of view
 			scrollBtn.dataset.show = (!entry.isIntersecting).toString();
 		});
 	}
