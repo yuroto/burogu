@@ -1,0 +1,194 @@
+{
+  "main": {
+    "id": "aabd870a726f2927",
+    "type": "split",
+    "children": [
+      {
+        "id": "cad9deb47a13e9eb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "827dbec2ac4a96b9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "src/content/post/2026/20260708.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "20260708"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "733678179e8f533a",
+    "type": "split",
+    "children": [
+      {
+        "id": "8bfe715793303d52",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "65132cf4f9911658",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "ファイルエクスプローラ"
+            }
+          },
+          {
+            "id": "ac23a361e203e2dc",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "検索"
+            }
+          },
+          {
+            "id": "83b04212775a9064",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "ブックマーク"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "4554814d5b95788d",
+    "type": "split",
+    "children": [
+      {
+        "id": "abbdf4ced23b5756",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e088f7ad6c38171f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "hinagata/デプロイの手順.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "デプロイの手順へのバックリンク"
+            }
+          },
+          {
+            "id": "982062fdbef00bca",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "hinagata/デプロイの手順.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "デプロイの手順からのアウトゴーイングリンク"
+            }
+          },
+          {
+            "id": "ad4072319f900ff5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "タグ"
+            }
+          },
+          {
+            "id": "11ab275d199f6cd7",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "すべてのプロパティ"
+            }
+          },
+          {
+            "id": "65a3a170cbb2e70e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "hinagata/デプロイの手順.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "デプロイの手順のアウトライン"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:クイックスイッチャーを開く": false,
+      "graph:グラフビューを開く": false,
+      "canvas:新規キャンバスを作成": false,
+      "daily-notes:今日のデイリーノートを開く": false,
+      "templates:テンプレートを挿入": false,
+      "command-palette:コマンドパレットを開く": false,
+      "bases:新規ベースを作成": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "827dbec2ac4a96b9",
+  "lastOpenFiles": [
+    "hinagata/デプロイの手順.md",
+    "src/content/post/2026/20260708 1.md",
+    "hinagata/新規記事テンプレート.md",
+    "hinagata"
+  ]
+}

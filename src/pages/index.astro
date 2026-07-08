@@ -1,29 +1,51 @@
 ---
-import { type CollectionEntry } from "astro:content";
+import { type CollectionEntry, render } from "astro:content";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import { getAllPosts } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
 import { collectionDateSort } from "@/utils/date";
 
-// 最新のブログ記事を10件取得
-const MAX_POSTS = 10;
+// 全文表示用の最新1件 ＋ 過去記事10件 ＝ 計11件 を取得する
+const MAX_POSTS = 11;
 const allPosts = await getAllPosts();
 const allPostsByDate = allPosts.sort(collectionDateSort) as CollectionEntry<"post">[];
 const latestPosts = allPostsByDate.slice(0, MAX_POSTS);
+
+const firstPost = latestPosts[0];
+const { Content } = await render(firstPost);
+
+// 💡 最新の1件を除いた、2番目以降の過去記事リストを作る
+const pastPosts = latestPosts.slice(1);
 ---
 
 <PageLayout meta={{ title: "Home" }}>
-	{/* 📝 最新記事の一覧エリアだけを配置 */}
 	<section class="mt-12">
-		<h2 class="title mb-6 text-xl text-accent">Latest Posts</h2>
-		<ul class="space-y-4" role="list">
-			{
-				latestPosts.map((p) => (
-					<li class="grid gap-1 sm:grid-cols-[auto_1fr] list-none ps-0">
-						<PostPreview post={p} />
-					</li>
-				))
-			}
-		</ul>
+		{/* --- ① 最新記事の全文表示エリア --- */}
+		<article class="prose prose-cactus max-w-none">
+			<h1 class="title mb-2 text-2xl text-accent">{firstPost.data.title}</h1>
+			<p class="mb-6 text-sm text-gray-500">
+				{firstPost.data.publishDate.toLocaleDateString("ja-JP", { year: 'numeric', month: '2-digit', day: '2-digit' })}
+			</p>
+			<div class="mt-4 markdown-body">
+				<Content />
+			</div>
+		</article>
+
+		{/* 💡 区切り線 */}
+		<hr class="my-12 border-dashed border-textColor/30" />
+
+		{/* --- ② 過去記事10件の一覧エリア --- */}
+		<div class="mt-12">
+			<h2 class="title mb-6 text-xl text-accent">Past Posts</h2>
+			<ul class="space-y-4" role="list">
+				{
+					pastPosts.map((p) => (
+						<li class="grid gap-1 sm:grid-cols-[auto_1fr] list-none ps-0">
+							<PostPreview post={p} />
+						</li>
+					))
+				}
+			</ul>
+		</div>
 	</section>
 </PageLayout>
