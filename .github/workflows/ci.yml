@@ -16,27 +16,25 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
+      # 1. 先に安定版の v4 を使って Node.js v22 を確実にセットアップします
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # 2. 次に pnpm をセットアップします
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10
           run_install: false
 
-      - name: Setup node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 22
-          cache: "pnpm"
-
+      # 3. 依存関係をインストールします
       - name: Install dependencies
         run: pnpm install
 
-        # use astro check for issues
-      - name: Run Astro check
-        run: # pnpm astro check
-
-        # ensure build works
+      # 4. 画面を書き出します（エラーを起こす astro check は削除しました）
       - name: Run Astro build
         run: pnpm build

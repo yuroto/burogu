@@ -90,11 +90,7 @@ site: 'https://yuroto.github.io',
 	vite: {
 		plugins: [tailwind(), rawFonts([".ttf", ".woff"])],
 	},
-	typescript: {
-    // 💡 これが魔法の一行です。型チェックエラーがあってもビルドを強制続行します！
-    allowJs: true,
-    skipCheck: true
-  },
+	
 	env: {
 		schema: {
 			WEBMENTION_API_KEY: envField.string({ context: "server", access: "secret", optional: true }),
