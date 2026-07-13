@@ -10,9 +10,9 @@ export const siteConfig: SiteConfig = {
         - The link value found in src/components/layout/Header.astro L:35
         - In the footer found in src/components/layout/Footer.astro L:12
     */
-    title: "Astro Cactus",
+    title: "なおれもら　おなし　ゆうろと",
     // Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
-    author: "Chris Williams",
+    author: "naoremora onashi yuroto",
     // Used as the default description meta property and webmanifest description
     description: "An opinionated starter theme for Astro",
     // 🇯🇵 HTMLの言語設定を日本語に変更
