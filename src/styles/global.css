@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
 @layer theme, base, pagefind, components, utilities;
 
 @import "tailwindcss/theme.css" layer(theme);
@@ -14,139 +16,177 @@
 
 /* register custom colour properties */
 @property --color-global-bg {
-	syntax: "<color>";
-	inherits: true;
-	initial-value: oklch(98.48% 0 0);
+    syntax: "<color>";
+    inherits: true;
+    initial-value: oklch(98.48% 0 0);
 }
 @property --color-global-text {
-	syntax: "<color>";
-	inherits: true;
-	initial-value: oklch(26.99% 0.0096 235.05);
+    syntax: "<color>";
+    inherits: true;
+    initial-value: oklch(26.99% 0.0096 235.05);
 }
 @property --color-muted {
-	syntax: "<color>";
-	inherits: true;
-	initial-value: oklch(44.6% 0.03 256.802);
+    syntax: "<color>";
+    inherits: true;
+    initial-value: oklch(44.6% 0.03 256.802);
 }
 @property --color-link {
-	syntax: "<color>";
-	inherits: true;
-	initial-value: oklch(55.44% 0.0431 185.69);
+    syntax: "<color>";
+    inherits: true;
+    initial-value: oklch(55.44% 0.0431 185.69);
 }
 @property --color-accent {
-	syntax: "<color>";
-	inherits: true;
-	initial-value: oklch(55.27% 0.195 19.06);
+    syntax: "<color>";
+    inherits: true;
+    initial-value: oklch(55.27% 0.195 19.06);
 }
 @property --color-accent-2 {
-	syntax: "<color>";
-	inherits: true;
-	initial-value: oklch(18.15% 0 0);
+    syntax: "<color>";
+    inherits: true;
+    initial-value: oklch(18.15% 0 0);
 }
 @property --color-quote {
-	syntax: "<color>";
-	inherits: true;
-	initial-value: oklch(55.27% 0.195 19.06);
+    syntax: "<color>";
+    inherits: true;
+    initial-value: oklch(55.27% 0.195 19.06);
 }
 
-/* 💡 純粋な初期値（ライトモード）のみを @theme に定義 */
+/* 💡 初期値（ライトモード：90s Macデフォルト色） */
 @theme {
-	--color-global-bg: oklch(98.48% 0 0);
-	--color-global-text: oklch(26.99% 0.0096 235.05);
-	--color-muted: oklch(44.6% 0.03 256.802);
-	--color-link: oklch(55.44% 0.0431 185.69);
-	--color-accent: oklch(55.27% 0.195 19.06);
-	--color-accent-2: oklch(18.15% 0 0);
-	--color-quote: oklch(55.27% 0.195 19.06);
+    --color-global-bg: #2e3842;
+    --color-global-text: #000000;
+    --color-muted: #313d48;
+    
+    /* ☀️ ライトモード修正：暗めの背景に映える爽やかなクラシックブルー */
+    --color-link: #214b68; 
+    
+    --color-accent: #2c333b;
+    --color-accent-2: #2b3136;
+    --color-quote: #162f46;
 }
 
 @layer base {
-	html {
-		color-scheme: light dark;
-		accent-color: var(--color-accent);
-		scrollbar-gutter: stable;
+    html {
+        color-scheme: light dark;
+        accent-color: var(--color-accent);
+        scrollbar-gutter: stable;
 
-		&[data-theme="light"] {
-			color-scheme: light;
-		}
+        /* ☀️ ライトモード：90年代風デスクトップのグラデーション */
+        &[data-theme="light"] {
+            color-scheme: light;
+            
+            &, & body {
+                background: linear-gradient(#424f56, #928660);
+                background-attachment: fixed !important;
+            }
+        }
 
-		&[data-theme="dark"] {
-			color-scheme: dark;
+        /* 🌙 ダークモード：元の色とグラデーションを維持 */
+       &[data-theme="dark"] {
+            color-scheme: dark;
 
-			/* 🌅 ダークモード時の色上書きは、@theme を使わず直接ここに記述するのが正解です */
-			--color-global-text: oklch(88% 0.004 30) !important;
-			--color-accent-2: oklch(95% 0.003 30) !important;
-			--color-muted: oklch(65% 0.005 30) !important;
-			--color-link: oklch(75% 0.03 40) !important;
+            --color-global-text: oklch(88% 0.004 30) !important;
+            --color-accent-2: oklch(95% 0.003 30) !important;
+            --color-muted: oklch(65% 0.005 30) !important;
+            
+            /* 🌙 ダークモード修正：明るい夕焼け背景を引き締める濃いネイビー */
+            --color-link: #1a3a5c !important;
 
-			/* 🌅 紺色から薄いオレンジへのグラデーションを適用 */
-&, & body {
-				background: linear-gradient(
-180deg, 
-    #0D1B1E 0%, 
-    #16322F 30%, 
-    #3A5E53 65%, 
-    #7A7858 100%
-				) !important;
-				background-attachment: fixed !important;
-			}
-		}
+            &, & body {
+                background: linear-gradient(#1e3a79    , #fbfadb   );
+                background-attachment: fixed !important;
+            }
+        }
 
-		--color-mode-transition-duration: 300ms;
-		--color-mode-transition-easing: ease-in-out;
+        --color-mode-transition-duration: 300ms;
+        --color-mode-transition-easing: ease-in-out;
 
-		transition:
-			--color-global-bg var(--color-mode-transition-duration) var(--color-mode-transition-easing),
-			--color-global-text var(--color-mode-transition-duration) var(--color-mode-transition-easing),
-			--color-muted var(--color-mode-transition-duration) var(--color-mode-transition-easing),
-			--color-link var(--color-mode-transition-duration) var(--color-mode-transition-easing),
-			--color-accent var(--color-mode-transition-duration) var(--color-mode-transition-easing),
-			--color-accent-2 var(--color-mode-transition-duration) var(--color-mode-transition-easing),
-			--color-quote var(--color-mode-transition-duration) var(--color-mode-transition-easing);
-	}
+        transition:
+            --color-global-bg var(--color-mode-transition-duration) var(--color-mode-transition-easing),
+            --color-global-text var(--color-mode-transition-duration) var(--color-mode-transition-easing),
+            --color-muted var(--color-mode-transition-duration) var(--color-mode-transition-easing),
+            --color-link var(--color-mode-transition-duration) var(--color-mode-transition-easing),
+            --color-accent var(--color-mode-transition-duration) var(--color-mode-transition-easing),
+            --color-accent-2 var(--color-mode-transition-duration) var(--color-mode-transition-easing),
+            --color-quote var(--color-mode-transition-duration) var(--color-mode-transition-easing);
+    }
 
-	:target {
-		scroll-margin-block: 5ex;
-	}
+    /* 全体のフォントをクラシックMac風に指定 */
+/* 💾 90sガチ勢向けの等幅・ビットマップ風指定 */
 
-	@view-transition {
-		navigation: auto;
-	}
+    body {
+font-family: "DotGothic16", "Osaka", "MS Gothic", "Hiragino Kaku Gothic ProN", sans-serif !important;
+    }
 
-	/* Astro image responsive styles */
-	:where([data-astro-image]) {
-		object-fit: var(--fit);
-		object-position: var(--pos);
-	}
-	[data-astro-image="full-width"] {
-		width: 100%;
-	}
-	[data-astro-image="constrained"] {
-		max-width: 100%;
-	}
+    /* 🖥️ メインコンテナを「透明なグレーウィンドウ」にする（ライト・ダーク共通） */
+    body > div, main {
+        backdrop-filter: blur(8px);
+        border-radius: 0px !important;
+        box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15) !important;
+        padding: 24px;
+
+        /* ライトモード時のウィンドウ（Macプラチナグレー風） */
+        html[data-theme="light"] & {
+            background-color: rgba(228, 228, 228, 0.7) !important;
+            border-top: 2px solid #ffffff !important;
+            border-left: 2px solid #ffffff !important;
+            border-right: 2px solid #808080 !important;
+            border-bottom: 2px solid #808080 !important;
+        }
+
+        /* ダークモード時のウィンドウ */
+        html[data-theme="dark"] & {
+            background-color: rgba(26, 32, 32, 0.8) !important;
+            border-top: 2px solid #33413f !important;
+            border-left: 2px solid #33413f !important;
+            border-right: 2px solid #0a100f !important;
+            border-bottom: 2px solid #0a100f !important;
+        }
+    }
+
+    :target {
+        scroll-margin-block: 5ex;
+    }
+
+    @view-transition {
+        navigation: auto;
+    }
+
+    /* Astro image responsive styles */
+    :where([data-astro-image]) {
+        object-fit: var(--fit);
+        object-position: var(--pos);
+    }
+    [data-astro-image="full-width"] {
+        width: 100%;
+    }
+    [data-astro-image="constrained"] {
+        max-width: 100%;
+    }
 }
 
 @layer components {
-	@import "./components/admonition.css";
-	@import "./components/github-card.css";
+    @import "./components/admonition.css";
+    @import "./components/github-card.css";
 
-	.cactus-link {
-		@apply hover:decoration-link underline underline-offset-2 hover:decoration-2;
-	}
+    .cactus-link {
+        @apply hover:decoration-link underline underline-offset-2 hover:decoration-2;
+    }
 
-	.title {
-		@apply text-accent-2 text-2xl font-semibold;
-	}
+    /* 90s風に合わせてタイトルも少しシンプルかつシャープに */
+    .title {
+        @apply text-accent-2 text-2xl font-bold tracking-wide;
+    }
 }
 
 @utility prose {
-	--tw-prose-body: var(--color-global-text);
-	--tw-prose-bold: var(--color-global-text);
-	--tw-prose-bullets: var(--color-global-text);
-	--tw-prose-code: var(--color-global-text);
-	--tw-prose-headings: var(--color-accent-2);
-	--tw-prose-hr: 0.5px dashed #666;
-	--tw-prose-links: var(--color-global-text);
-	--tw-prose-quotes: var(--color-quote);
-	--tw-prose-th-borders: #666;
+    --tw-prose-body: var(--color-global-text);
+    --tw-prose-bold: var(--color-global-text);
+    --tw-prose-bullets: var(--color-global-text);
+    --tw-prose-code: var(--color-global-text);
+    --tw-prose-headings: var(--color-accent-2);
+    --tw-prose-hr: 1px dashed var(--color-muted); /* 線の太さを1pxのドットに変更 */
+--tw-prose-links: var(--color-link); /* リンクの色をそのまま適用 */
+    --tw-prose-quotes: var(--color-quote);
+    --tw-prose-th-borders: var(--color-muted);
 }
