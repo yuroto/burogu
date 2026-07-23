@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/post/2026/2026-07-21.md",
+                "file": "src/content/post/2026/2026-07-24.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-07-21"
+              "title": "2026-07-24"
             }
           }
         ]
@@ -187,10 +187,12 @@
   },
   "active": "827dbec2ac4a96b9",
   "lastOpenFiles": [
+    "20260724yabai.mp3",
+    "src/content/post/2026/2026-07-21.md",
+    "src/content/post/2026/2026-07-24.md",
     "src/content/post/2026/20260707.md",
     "src/content/post/2026/20260708.md",
     "src/content/post/2026/だる.md",
-    "src/content/post/2026/2026-07-21.md",
     "hinagata/新規記事テンプレート.md",
     "src/content/tag/test.md",
     "src/content/note/welcome.md",
